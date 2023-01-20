@@ -52,7 +52,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       if (Object.keys(hasUser).length > 0) {
         api.defaults.headers.common[
           "Authorization"
-        ] = `Beader ${hasUser.token}`;
+        ] = `Bearer ${hasUser.token}`;
 
         setUser({
           id: hasUser.id,
@@ -69,6 +69,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   async function signIn({ email, password }: SignInProps) {
     setLoadingAuth(true);
+
     try {
       const response = await api.post("/session", {
         email,
@@ -81,7 +82,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       await AsyncStorage.setItem("@waiterapp", JSON.stringify(data));
 
-      api.defaults.headers.common["Authorization"] = `Beader ${token}`;
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
       setUser({
         id,
@@ -91,6 +92,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       });
 
       setLoadingAuth(false);
+      console.log("Login feito com sucesso");
     } catch (error) {
       console.log("Error ao acessar", error);
       setLoadingAuth(false);

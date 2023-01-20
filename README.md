@@ -9,7 +9,7 @@
 
 ## Objetivo:
 
-### Foi criar uma aplicação para o garçom anotar os pedidos dos clientes usando um tablet ou smartphone, tudo de forma automatizada
+### Foi criar uma aplicação para o garçom anotar os pedidos dos clientes usando um tablet ou smartphone, tudo de forma automatizada.
 
 ## Descrição:
 
